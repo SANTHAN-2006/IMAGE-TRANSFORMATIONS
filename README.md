@@ -8,59 +8,80 @@ To perform image transformation such as Translation, Scaling, Shearing, Reflecti
 Anaconda - Python 3.7
 
 ## Algorithm:
+
 ### Step1:
-<br>
+
+Import all the necessary modules
 
 ### Step2:
-<br>
 
+Choose an image and save it as filename.jpg
 ### Step3:
-<br>
 
+
+Use imread to read the image
 ### Step4:
-<br>
-
+Use cv2.warpPerspective(image,M,(cols,rows)) to translation the image
 ### Step5:
+Use cv2.warpPerspective(image,M,(cols*2,rows*2)) to scale the image
+### Step6:
+Use cv2.warpPerspective(image,M,(int(cols*1.5),int(rows*1.5))) for x and y axis to shear the image
+### Step7:
+Use cv2.warpPerspective(image,M,(int(cols),int(rows))) for x and y axis to reflect the image
+### Step8:
+Use cv2.warpPerspective(image,M,(int(cols),int(rows))) to rotate the image
+### Step9:
+Crop the image to remove unwanted areas from an image
+### Step10:
+
+Use cv2.imshow to show the image
+### Step11:
 <br>
+End the program
 
 ## Program:
 ```python
-Developed By : K SANTHAN KUMAR
-Register Number : 212223240065
+Developed By : K MADHAVA REDDY
+Register Number : 212223240064
 ```
-### Original Image 
+### Original image 
 ```python
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt
-image = cv2.imread("dog.jpg")
+image = cv2.imread('dogs.jpeg')
 image = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
 plt.axis('off')
 plt.imshow(image)
 plt.show()
 ```
+## OUPUT :
+![image](https://github.com/SANTHAN-2006/IMAGE-TRANSFORMATIONS/assets/80164014/e258159b-cf6f-4c56-9a62-22f39ad47ecc)
+
 ### i)Image Translation
 ```python
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt
-image = cv2.imread("dog.jpg")
+image = cv2.imread("dogs.jpeg")
 image = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
 plt.axis('off')
 rows,cols,dim = image.shape
-M = np.float32([[1,0,514],[0,1,-100],[0,0,1]])
+M = np.float32([[1,0,114],[0,1,-230],[0,0,1]])
 translated_image = cv2.warpPerspective(image,M,(cols,rows))
 plt.axis('off')
 plt.imshow(translated_image)
 plt.show()
 ```
+## OUPUT :
+![image](https://github.com/SANTHAN-2006/IMAGE-TRANSFORMATIONS/assets/80164014/30651e12-b8a4-4dd2-9cc9-3cd4a900b3fc)
 
 ### ii) Image Scaling
 ```python
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt
-image = cv2.imread("dog.jpg")
+image = cv2.imread("dogs.jpeg")
 image = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
 plt.axis('off')
 rows,cols,dim = image.shape
@@ -70,14 +91,15 @@ plt.axis('off')
 plt.imshow(scaled_image)
 plt.show()
 ```
-
+## OUPUT :
+![image](https://github.com/SANTHAN-2006/IMAGE-TRANSFORMATIONS/assets/80164014/9b0bee0f-f070-4c1c-993f-64001fdb22b6)
 
 ### iii)Image shearing
 ```python
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt
-image = cv2.imread("dog.jpg")
+image = cv2.imread("dogs.jpeg")
 image = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
 plt.axis('off')
 rows,cols,dim = image.shape
@@ -90,15 +112,15 @@ plt.imshow(sheared_img_xaxis)
 plt.imshow(sheared_img_yaxis)
 plt.show()
 ```
-
-
+## OUTPUT :
+![image](https://github.com/SANTHAN-2006/IMAGE-TRANSFORMATIONS/assets/80164014/7a2831ff-c2d3-4b28-be2b-d218247ff2ab)
 
 ### iv)Image Reflection
 ```python
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt
-image = cv2.imread("dog.jpg")
+image = cv2.imread("dogs.jpeg")
 image = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
 plt.axis('off')
 rows,cols,dim = image.shape
@@ -111,16 +133,16 @@ plt.imshow(reflected_img_xaxis)
 plt.imshow(reflected_img_yaxis)
 plt.show()
 ```
+## OUPUT :
 
-
-
+<img width="319" alt="image" src="https://github.com/SANTHAN-2006/IMAGE-TRANSFORMATIONS/assets/80164014/f5695a57-86f5-4de2-802e-266ab6ce3789">
 
 ### v)Image Rotation
 ```python
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt
-image = cv2.imread("dog.jpg")
+image = cv2.imread("dogs.jpeg")
 image = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
 plt.axis('off')
 rows,cols,dim = image.shape
@@ -131,83 +153,26 @@ plt.axis('off')
 plt.imshow(rotated_img)
 plt.show()
 ```
-
+## OUPUT :
+![image](https://github.com/SANTHAN-2006/IMAGE-TRANSFORMATIONS/assets/80164014/312d2c70-6cca-4f31-a0db-2ebd67a2fd49)
 
 
 ### vi)Image Cropping
-
 ```python
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt
-image = cv2.imread("dog.jpg")
+image = cv2.imread("dogs.jpeg")
 image = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
 plt.axis('off')
 rows,cols,dim = image.shape
-cropped_img = image[700:900,600:900]
+cropped_img = image[100:800,20:400]
 plt.axis('off')
 plt.imshow(cropped_img)
 plt.show()
-
-
-
 ```
-## Output:
-### Original Image 
-![image](https://github.com/SANTHAN-2006/IMAGE-TRANSFORMATIONS/assets/80164014/17677da0-17a6-4b8f-8507-c7c807b9c418)
-
-### i)Image Translation
-![image](https://github.com/SANTHAN-2006/IMAGE-TRANSFORMATIONS/assets/80164014/ee3bf23a-678d-4c14-804b-76bb6572aa1c)
-
-<br>
-<br>
-<br>
-
-### ii) Image Scaling
-![image](https://github.com/SANTHAN-2006/IMAGE-TRANSFORMATIONS/assets/80164014/2224e04f-1da1-49d8-9ff8-f8ba510dfd2d)
-
-<br>
-<br>
-
-
-### iii)Image shearing
-![image](https://github.com/SANTHAN-2006/IMAGE-TRANSFORMATIONS/assets/80164014/19dceb9d-5ab5-417f-a713-3ee55c358588)
-
-<br>
-<br>
-<br>
-
-
-### iv)Image Reflection
-![image](https://github.com/SANTHAN-2006/IMAGE-TRANSFORMATIONS/assets/80164014/28d26666-4a20-4ded-9932-30b0d7c646ab)
-
-<br>
-<br>
-<br>
-<br>
-
-
-
-### v)Image Rotation
-![image](https://github.com/SANTHAN-2006/IMAGE-TRANSFORMATIONS/assets/80164014/c184478c-ad60-4027-8908-c07699d473e7)
-
-<br>
-<br>
-<br>
-<br>
-
-
-
-### vi)Image Cropping
-![image](https://github.com/SANTHAN-2006/IMAGE-TRANSFORMATIONS/assets/80164014/b7e86607-db43-4b67-8a29-6059059f29e7)
-
-<br>
-<br>
-<br>
-<br>
-
-
-
+## OUPUT :
+![image](https://github.com/SANTHAN-2006/IMAGE-TRANSFORMATIONS/assets/80164014/9c57bae7-d560-443b-ba55-ad821dc93206)
 
 ## Result: 
 
