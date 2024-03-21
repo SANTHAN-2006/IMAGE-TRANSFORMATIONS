@@ -41,8 +41,8 @@ End the program
 
 ## Program:
 ```python
-Developed By : K MADHAVA REDDY
-Register Number : 212223240064
+Developed By : K SANTHAN KUMAR
+Register Number : 212223240065
 ```
 ### Original image 
 ```python
